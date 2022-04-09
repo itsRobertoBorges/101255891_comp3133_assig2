@@ -1,0 +1,20 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.example-sidenav {
+  background: #b9b9b9;
+  border: 0px;
+  button {
+    width: 150px;
+    font-size: 20px;
+  }
+}
+
+.example-sidenav-toggle {
+  background: #b9b9b9;
+  border-radius: 0px;
+}
+
+button {
+  overflow: hidden;
+}
+

@@ -1,0 +1,65 @@
+<h1>The Listing Page</h1>
+
+<div class="test">
+  <div>
+  <form [formGroup]="searchForm" (ngSubmit)="search()">
+    <mat-form-field appearance="fill" style="width: 100%">
+      <mat-label>Search</mat-label>
+      <input matInput formControlName="search" />
+    </mat-form-field>
+    <br/>
+    <mat-button-toggle-group formControlName="condition">
+      <mat-button-toggle value="name">Name:</mat-button-toggle>
+      <mat-button-toggle value="city">City:</mat-button-toggle>
+      <mat-button-toggle value="postalCode">Postal Code:</mat-button-toggle>
+    </mat-button-toggle-group>
+    <button mat-raised-button color="primary" type="submit">Search</button>
+  </form>
+  </div>
+</div>
+
+<table mat-table [dataSource]="listings" class="mat-elevation-z8">
+
+  <!--prices-->
+  <ng-container matColumnDef="Price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element">$ {{element.price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Lister">
+    <th mat-header-cell *matHeaderCellDef> All Listed </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Title">
+    <th mat-header-cell *matHeaderCellDef>ID : Title </th>
+    <td mat-cell *matCellDef="let element">{{element.listing_id}}: {{element.listing_title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let element">{{element.street}}, {{element.city}}, {{element.postal_code}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Book">
+    <th mat-header-cell *matHeaderCellDef> Book </th>
+    <td mat-cell *matCellDef="let element; let i = index" (click)="addBooking(i)">
+      <button color="primary" mat-raised-button class="bookButton">Book Here</button>
+    </td>
+  </ng-container>
+
+  <div *ngIf="!authenticated">
+  <tr class="tableHead" mat-header-row *matHeaderRowDef="anyColumns"></tr>
+  <tr  mat-row *matRowDef="let row; columns: anyColumns;"></tr>
+  </div>
+
+  <div *ngIf="authenticated">
+    <tr class="tableHead"  mat-header-row *matHeaderRowDef="userColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: userColumns;"></tr>
+    </div>
+</table>

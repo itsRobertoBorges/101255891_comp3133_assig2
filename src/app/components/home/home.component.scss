@@ -1,0 +1,20 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+h1 {
+  text-align: center;
+  margin: 5rem;
+  display: flexbox;
+  background-color: rgb(233, 147, 147);
+  border-radius: 50px;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 854;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 60px;
+  font-style: italic;
+  text-align: center;
+}

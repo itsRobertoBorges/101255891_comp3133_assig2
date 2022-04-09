@@ -1,0 +1,26 @@
+.navbar {
+    padding: 8px 16px;
+    background: linear-gradient(rgb(212, 79, 79), rgb(233, 147, 147));
+    color: #000000;
+    display: flex;
+    font-style: italic;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav li {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  
+  a {
+    color: #000000;
+    font-style: italic;
+    text-decoration: none;
+  }
